@@ -11,5 +11,11 @@
     <p><a href="/createprofessor">Crear profesor</a></p>
     <p><a href="/signout">Cerrar sesión</a></p>
 
+    <ul>
+    {% for course in courses %}
+        <li><p><h3>{{course.name}}</h3>{{course.professor.name}}</p></li>
+    {% endfor %}
+    </ul>
+
 </body>
 </html>

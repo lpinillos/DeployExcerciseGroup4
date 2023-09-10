@@ -4,6 +4,7 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import logout
+from courses.models import Course
 
 
 
@@ -11,7 +12,10 @@ from django.contrib.auth import logout
 class CoursesMain(View):
 
     def get(self, request):
-        return render(request, 'courses_main.html')
+        courses = Course.objects.all()
+        return render(request, 'courses_main.html', {
+            'courses':courses
+        })
     
     def signout(request):
         logout(request)
