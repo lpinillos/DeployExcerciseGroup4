@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import logout
 from courses.models import Course
+from django.db.models import Q
+from courses.util.query_util import get_courses_by_query
+
 
 
 
@@ -12,10 +15,12 @@ from courses.models import Course
 class CoursesMain(View):
 
     def get(self, request):
-        courses = Course.objects.all()
+        query = request.GET.get('q', '')
+        courses = get_courses_by_query(query)
         return render(request, 'courses_main.html', {
-            'courses':courses
+            'courses': courses,
         })
+        
     
     def signout(request):
         logout(request)

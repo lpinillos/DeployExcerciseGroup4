@@ -11,9 +11,15 @@
     <p><a href="/createprofessor">Crear profesor</a></p>
     <p><a href="/signout">Cerrar sesión</a></p>
 
+    <form method="GET" action="">
+        <label for="search">Buscar curso:</label>
+        <input type="text" id="search" name="q" value="{{ request.GET.q }}">
+        <button type="submit">Buscar</button>
+    </form>
+
     <ul>
     {% for course in courses %}
-        <li><p><h3>{{course.name}}</h3>{{course.professor.name}}</p></li>
+        <li><p><h3>{{course.name}}</h3><p>{{course.professor.name}}</p><p>{{course.faculty}}</p></p></li>
     {% endfor %}
     </ul>
 

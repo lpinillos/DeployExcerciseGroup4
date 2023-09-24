@@ -29,6 +29,6 @@ urlpatterns = [
     path('createcourse/', CoursesCreate.as_view(), name="createcourse"),
     path('createprofessor/', ProfessorCreate.as_view(), name="createprofessor"),
     path('signup/', Signup.as_view(), name="signup"),
-    path('signin/', Signin.as_view(), name="signup"),
+    path('signin/', Signin.as_view(), name="signin"),
     path('signout/', CoursesMain.signout, name="signout"),
 ]
