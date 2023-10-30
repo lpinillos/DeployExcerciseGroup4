@@ -12,11 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-DEBUG = False
 BASE_DIR = Path(__file__).resolve().parent.parent
-ALLOWED_HOSTS = ['*']
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,9 +26,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 SECRET_KEY = 'django-insecure-w3($fz7!(kr23d_a7lqm8^_tq@xf_so#z5lb&eyt2s$%8ea1$('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['deploy-excercise-group4.vercel.app']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
 # Application definition
