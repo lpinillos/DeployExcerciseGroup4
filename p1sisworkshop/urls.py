@@ -21,6 +21,8 @@ from courses.views.courses_create import CoursesCreate
 from courses.views.courses_main import CoursesMain
 from courses.views.signin import Signin
 from courses.views.signup import Signup
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -32,3 +34,6 @@ urlpatterns = [
     path('signin/', Signin.as_view(), name="signin"),
     path('signout/', CoursesMain.signout, name="signout"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
